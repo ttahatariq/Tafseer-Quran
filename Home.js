@@ -54,11 +54,16 @@ database.ref('/').once('value').then((snapshot) => {
 
 <View style={{borderWidth:2,borderColor:"white",borderRadius:5}}>
   <Text style={{color:"white",fontSize:20}}>
-    Home
+    Search
   </Text>
 </View>
        </View>
 <View style={{flex:0.9,backgroundColor:"black"}}>
+<TextInput
+        style={{backgroundColor:'white',fontSize:30}}
+        
+        
+      />
        <FlatList 
                 style={{}}
                 data={quran}
@@ -72,9 +77,7 @@ database.ref('/').once('value').then((snapshot) => {
                                 
                         </View>
                         <View>
-                        <Text style={styles.mail}>{item.TafseerName}</Text>
-                        <Text style={styles.mail}>SurahNumber: {item.SurahNumber}</Text>
-                            <Text style={styles.name}>{item.AyahNumber}</Text>
+                        
                             
                             <Text style={styles.itemMail}>{item.Tafseer}</Text>
                             
