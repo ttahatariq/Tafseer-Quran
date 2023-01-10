@@ -36,25 +36,40 @@ database.ref('/').once('value').then((snapshot) => {
 
   const filteredItems = quran.filter(item => quran.includes(searchTerm));
 
+
+  const [searchTerm1, setSearchTerm1] = useState('');
+  const [results, setResults] = useState([]);
+
+  const data1 = {
+    "items": [
+      { "name": "item1", "value": "value1" },
+      { "name": "item2", "value": "value2" },
+      { "name": "item3", "value": "value3" }
+    ]
+  };
+
+  const search = () => {
+    const results = [];
+    for (const item of data1.items) {
+      if (item.name.includes(searchTerm) || item.value.includes(searchTerm)) {
+        results.push(item);
+      }
+    }
+    setResults(results);
+  };
+
   return (
-    <View>
-        <Text></Text>
-      <TextInput
-      style={{fontSize:50, backgroundColor:'gray'}}
+    <View style={{fontSize:20}}>
+        <TextInput
+        style={{backgroundColor:'gray',fontSize:30}}
         value={searchTerm}
         onChangeText={setSearchTerm}
+        onSubmitEditing={search}
       />
-      <FlatList
-        data={filteredItems}
-        renderItem={({ item }) => (
-          <Text>
-            {item.split(searchTerm).map((text, i) => (
-              i % 2 === 0 ? text : <Text style={{ backgroundColor: 'yellow' }}>{searchTerm}</Text>
-            ))}
-          </Text>
-        )}
-        keyExtractor={item => item}
-      />
+      {results.map(result => (
+        <Text key={result.name}>{result.name}: {result.value}</Text>
+      ))}
+       
     </View>
   );
 };
