@@ -7,13 +7,15 @@ import ProfileScreen from './ProfileScreen'
 import SettingsScreen from './SettingsScreen';
 import Chat from './Chat'
 import details from './details'
+import search from './search'
 
 const Stack = createNativeStackNavigator();
 
 export default function App(props) {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown:false}}>
+      <Stack.Navigator >
+      <Stack.Screen name="search" component={search} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="details" component={details} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />

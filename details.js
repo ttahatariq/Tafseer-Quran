@@ -76,7 +76,7 @@ function filterr(quran) {
                 renderItem={({item}) => (
                     <Pressable 
                         style={styles.container} 
-                        onPress={() => navigation.navigate('User Details', {item})}>
+                        >
                         <View style={styles.innerContainer}>
                                 
                         </View>
